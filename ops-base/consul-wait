@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -eu
+
+while :; do
+  if consul info | grep 'connection refused'; then
+    echo "$(date -Is) waiting for consul to start" >&2
+    sleep 5
+  else
+    break
+  fi
+done
+
+exec "$@"
