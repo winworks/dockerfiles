@@ -1,5 +1,8 @@
 FROM docker:latest
 
+ENTRYPOINT []
+CMD []
+
 RUN set -eux \
 
 	# awscli
