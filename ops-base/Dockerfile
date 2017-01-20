@@ -6,24 +6,24 @@ CMD []
 RUN set -eux \
 
 	# awscli
-	&& apk add --no-cache python py-pip \
+	&& apk add --no-cache python py2-pip \
 	&& pip install awscli \
-	&& apk del --purge py-pip \
+	&& apk del --purge py2-pip \
 
 	# consul
-	&& VERSION=0.7.1 \
+	&& VERSION=0.7.2 \
 	&& wget https://releases.hashicorp.com/consul/$VERSION/consul_${VERSION}_linux_amd64.zip \
 	&& unzip consul_${VERSION}_linux_amd64.zip -d /usr/local/bin \
 	&& rm consul_${VERSION}_linux_amd64.zip \
 
 	# consul-template
-	&& VERSION=0.18.0-rc1 \
+	&& VERSION=0.18.0-rc3 \
 	&& wget https://releases.hashicorp.com/consul-template/$VERSION/consul-template_${VERSION}_linux_amd64.zip \
 	&& unzip consul-template_${VERSION}_linux_amd64.zip -d /usr/local/bin \
 	&& rm consul-template_${VERSION}_linux_amd64.zip \
 
 	# docker-compose
-	&& VERSION=1.9.0 \
+	&& VERSION=1.10.0 \
 	&& wget -O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/$VERSION/run.sh \
 	&& chmod +x /usr/local/bin/docker-compose \
 	&& apk add --no-cache bash \
