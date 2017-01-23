@@ -17,7 +17,7 @@ RUN set -eux \
 	&& rm consul_${VERSION}_linux_amd64.zip \
 
 	# consul-template
-	&& VERSION=0.18.0-rc3 \
+	&& VERSION=0.18.0 \
 	&& wget https://releases.hashicorp.com/consul-template/$VERSION/consul-template_${VERSION}_linux_amd64.zip \
 	&& unzip consul-template_${VERSION}_linux_amd64.zip -d /usr/local/bin \
 	&& rm consul-template_${VERSION}_linux_amd64.zip \
