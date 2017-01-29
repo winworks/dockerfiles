@@ -11,7 +11,7 @@ RUN set -eux \
 	&& apk del --purge py2-pip \
 
 	# consul
-	&& VERSION=0.7.2 \
+	&& VERSION=0.7.3 \
 	&& wget https://releases.hashicorp.com/consul/$VERSION/consul_${VERSION}_linux_amd64.zip \
 	&& unzip consul_${VERSION}_linux_amd64.zip -d /usr/local/bin \
 	&& rm consul_${VERSION}_linux_amd64.zip \
