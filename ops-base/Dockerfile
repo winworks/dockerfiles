@@ -6,14 +6,14 @@ CMD []
 RUN set -eux \
 
 	# docker-compose
-	&& VERSION=1.11.1 \
+	&& VERSION=1.11.2 \
 	&& wget -O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/$VERSION/run.sh \
 	&& chmod +x /usr/local/bin/docker-compose \
 	# run.sh is a bash script
 	&& apk add --no-cache bash \
 
 	# consul
-	&& VERSION=0.7.4 \
+	&& VERSION=0.7.5 \
 	&& wget https://releases.hashicorp.com/consul/$VERSION/consul_${VERSION}_linux_amd64.zip \
 	&& unzip consul_${VERSION}_linux_amd64.zip -d /usr/local/bin \
 	&& rm consul_${VERSION}_linux_amd64.zip \
