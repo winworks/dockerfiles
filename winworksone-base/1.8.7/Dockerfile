@@ -7,7 +7,7 @@ RUN echo Asia/Tokyo >/etc/timezone \
 
 RUN MYSQL_MAJOR=5.6 \
 	# MySQL
-	&& apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys A4A9406876FCBD3C456770C88C718D3B5072E1F5 \
+	&& apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5 \
 	&& echo "deb http://repo.mysql.com/apt/debian/ jessie mysql-$MYSQL_MAJOR" > /etc/apt/sources.list.d/mysql.list \
 	\
 	# apt
