@@ -1,12 +1,13 @@
-FROM docker:1.12.6
+FROM docker:17.06
 
 ENTRYPOINT []
 CMD []
 
 RUN set -eux \
+	&& apk add --no-cache wget \
 
 	# docker-compose
-	&& VERSION=1.11.2 \
+	&& VERSION=1.16.1 \
 	&& wget -O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/$VERSION/run.sh \
 	&& chmod +x /usr/local/bin/docker-compose \
 	# run.sh is a bash script
@@ -19,7 +20,7 @@ RUN set -eux \
 	&& rm consul_${VERSION}_linux_amd64.zip \
 
 	# consul-template
-	&& VERSION=0.18.1 \
+	&& VERSION=0.18.5 \
 	&& wget https://releases.hashicorp.com/consul-template/$VERSION/consul-template_${VERSION}_linux_amd64.zip \
 	&& unzip consul-template_${VERSION}_linux_amd64.zip -d /usr/local/bin \
 	&& rm consul-template_${VERSION}_linux_amd64.zip \
